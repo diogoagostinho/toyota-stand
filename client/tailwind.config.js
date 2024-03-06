@@ -1,14 +1,15 @@
-/* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
-/** @type {import('tailwindcss').Config} */
+/* eslint-disable no-undef */
 const { nextui } = require("@nextui-org/react");
+
+/** @type {import('tailwindcss').Config} */
 
 export default {
   content: [
-    "./src/**/*.{html,js}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-
   theme: {
     extend: {},
   },

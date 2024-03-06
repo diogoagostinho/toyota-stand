@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 * {
-  @apply transition-all duration-100;
+  font-family: "Satoshi", sans-serif;
 }

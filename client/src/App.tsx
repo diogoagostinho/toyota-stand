@@ -9,7 +9,7 @@ import {
   NavbarMenuItem,
   Link,
 } from "@nextui-org/react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
@@ -24,14 +24,16 @@ function App() {
   const handleDarkModeToggle = () => {
     setIsDark(!isDark);
   };
+  const location = useLocation();
+  const locationString = location.pathname.split("/")[1];
 
   return (
     <NextUIProvider navigate={navigate}>
       <div
         className={
           isDark === true
-            ? "dark text-foreground bg-background"
-            : "light text-foreground bg-background"
+            ? "dark text-foreground bg-background min-h-screen"
+            : "light text-foreground bg-background min-h-screen"
         }
       >
         <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -54,13 +56,18 @@ function App() {
             </NavbarBrand>
           </NavbarContent>
 
-          <NavbarContent className="hidden sm:flex gap-8" justify="center">
-            <NavbarItem>
-              <Link color="foreground" href="/vehicles">
+          <NavbarContent className="hidden sm:flex gap-6" justify="center">
+            <NavbarItem isActive={locationString === "" ? true : false}>
+              <Link href="/" color="foreground">
+                Home
+              </Link>
+            </NavbarItem>
+            <NavbarItem isActive={locationString === "vehicles" ? true : false}>
+              <Link href="/vehicles" color="foreground">
                 Vehicles
               </Link>
             </NavbarItem>
-            <NavbarItem>
+            <NavbarItem isActive={locationString === "faq" ? true : false}>
               <Link href="/faq" color="foreground" aria-current="page">
                 FAQ
               </Link>
@@ -73,7 +80,18 @@ function App() {
                 showAnchorIcon
                 href="https://www.toyotacertified.com/"
               >
-                Certified Used Vehicles
+                Used Vehicles
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                className="gap-2"
+                color="foreground"
+                isExternal
+                showAnchorIcon
+                href="https://www.toyota.com/rental"
+              >
+                Rentals
               </Link>
             </NavbarItem>
           </NavbarContent>
@@ -105,6 +123,11 @@ function App() {
           </NavbarContent>
           <NavbarMenu>
             <NavbarMenuItem>
+              <Link color="foreground" href="/">
+                Home
+              </Link>
+            </NavbarMenuItem>
+            <NavbarMenuItem>
               <Link color="foreground" href="/vehicles">
                 Vehicles
               </Link>
@@ -122,7 +145,18 @@ function App() {
                 showAnchorIcon
                 href="https://www.toyotacertified.com/"
               >
-                Certified Used Vehicles
+                Used Vehicles
+              </Link>
+            </NavbarMenuItem>
+            <NavbarMenuItem>
+              <Link
+                className="gap-2"
+                color="foreground"
+                isExternal
+                showAnchorIcon
+                href="https://www.toyota.com/rental"
+              >
+                Rentals
               </Link>
             </NavbarMenuItem>
           </NavbarMenu>

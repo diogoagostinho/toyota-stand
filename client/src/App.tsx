@@ -16,6 +16,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import Home from "./pages/Home";
 import Vehicles from "./pages/Vehicles";
 import Faq from "./pages/Faq";
+import Footer from "./components/Footer";
 
 function App() {
   const navigate = useNavigate();
@@ -167,6 +168,8 @@ function App() {
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/faq" element={<Faq />} />
         </Routes>
+
+        <Footer />
       </div>
     </NextUIProvider>
   );

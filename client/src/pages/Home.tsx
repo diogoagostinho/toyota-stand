@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HomeHero from "../components/HomeHero";
 import {
   Tabs,
@@ -10,12 +10,50 @@ import {
   CardBody,
   CardHeader,
 } from "@nextui-org/react";
+import axios from "axios";
 import VehicleCard from "../components/VehicleCard";
 
 function Home() {
   useEffect(() => {
     document.title = "Toyota";
   });
+
+  const [cars, setCars] = useState([]);
+  const [trucks, setTrucks] = useState([]);
+  const [suvs, setSuvs] = useState([]);
+  const [alternatives, setAlternatives] = useState([]);
+  const [grs, setGrs] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/vehicles/cars")
+      .then((cars) => setCars(cars.data))
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/vehicles/trucks")
+      .then((trucks) => setTrucks(trucks.data))
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/vehicles/suvs")
+      .then((suvs) => setSuvs(suvs.data))
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/vehicles/alternatives")
+      .then((alternatives) => setAlternatives(alternatives.data))
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/vehicles/grs")
+      .then((gr) => setGrs(gr.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -35,61 +73,19 @@ function Home() {
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
                 }
               >
-                <VehicleCard
-                  image={"yaris.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Yaris"}
-                  description={"Compact and agile"}
-                  price={"$20,300"}
-                  horsepower={"92hp"}
-                  link={"/vehicles/yaris"}
-                />
-                <VehicleCard
-                  image={"aygo.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Aygo X"}
-                  description={"Elevated, for you"}
-                  price={"$18,240"}
-                  horsepower={"71hp"}
-                  link={"/vehicles/aygo"}
-                />
-                <VehicleCard
-                  image={"camry.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Camry"}
-                  description={"Discover more drive for every day"}
-                  price={"$26,420"}
-                  horsepower={"203hp"}
-                  link={"/vehicles/camry"}
-                />
-                <VehicleCard
-                  image={"corolla.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Corolla"}
-                  description={"Refine your routine"}
-                  price={"$21,700"}
-                  horsepower={"169hp"}
-                  link={"/vehicles/corolla"}
-                />
-
-                <VehicleCard
-                  image={"crown.jpg"}
-                  fuel={"Hybrid"}
-                  name={"Crown"}
-                  description={"An image of innovation"}
-                  price={"$40,350"}
-                  horsepower={"236hp"}
-                  link={"/vehicles/crown"}
-                />
-                <VehicleCard
-                  image={"prius.jpg"}
-                  fuel={"Hybrid"}
-                  name={"Prius"}
-                  description={"The hybrid reborn"}
-                  price={"$27,450"}
-                  horsepower={"194hp"}
-                  link={"/vehicles/prius"}
-                />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {cars.map((car: any) => (
+                  <VehicleCard
+                    key={car.name}
+                    image={car.image}
+                    fuel={car.fuel}
+                    name={car.name}
+                    description={car.description}
+                    price={car.price}
+                    horsepower={car.horsepower}
+                    link={car.link}
+                  />
+                ))}
               </div>
             </Tab>
 
@@ -99,33 +95,19 @@ function Home() {
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
                 }
               >
-                <VehicleCard
-                  image={"tacoma.jpg"}
-                  fuel={"Gas"}
-                  name={"Tacoma"}
-                  description={"The adventure never ends"}
-                  price={"$28,600"}
-                  horsepower={"278hp"}
-                  link={"/vehicles/tacoma"}
-                />
-                <VehicleCard
-                  image={"tundra.jpg"}
-                  fuel={"Gas"}
-                  name={"Tundra"}
-                  description={"Designed to be tough"}
-                  price={"$38,965"}
-                  horsepower={"358hp"}
-                  link={"/vehicles/tundra"}
-                />
-                <VehicleCard
-                  image={"hilux.jpg"}
-                  fuel={"Gas"}
-                  name={"Hilux"}
-                  description={"The unbreakable machine"}
-                  price={"$39,900"}
-                  horsepower={"201hp"}
-                  link={"/vehicles/hilux"}
-                />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {trucks.map((truck: any) => (
+                  <VehicleCard
+                    key={truck.name}
+                    image={truck.image}
+                    fuel={truck.fuel}
+                    name={truck.name}
+                    description={truck.description}
+                    price={truck.price}
+                    horsepower={truck.horsepower}
+                    link={truck.link}
+                  />
+                ))}
               </div>
             </Tab>
             <Tab className="text-lg" key="suvs" title="SUVs">
@@ -134,87 +116,19 @@ function Home() {
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
                 }
               >
-                <VehicleCard
-                  image={"4runner.jpg"}
-                  fuel={"Gas"}
-                  name={"4Runner"}
-                  description={"For adventurers. For legends. 4Runner."}
-                  price={"$40,155"}
-                  horsepower={"270hp"}
-                  link={"/vehicles/4runner"}
-                />
-                <VehicleCard
-                  image={"corollacross.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Corolla Cross"}
-                  description={"Ride and shine"}
-                  price={"$23,610"}
-                  horsepower={"169hp"}
-                  link={"/vehicles/corolla-cross"}
-                />
-                <VehicleCard
-                  image={"highlander.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Highlander"}
-                  description={"Drive with purpose, arrive in style"}
-                  price={"$36,620"}
-                  horsepower={"265hp"}
-                  link={"/vehicles/highlander"}
-                />
-                <VehicleCard
-                  image={"grandhighlander.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"Grand Highlander"}
-                  description={"More space means more memories"}
-                  price={"$43,320"}
-                  horsepower={"265hp"}
-                  link={"/vehicles/grand-highlander"}
-                />
-                <VehicleCard
-                  image={"landcruiser.jpg"}
-                  fuel={"Hybrid"}
-                  name={"Land Cruiser"}
-                  description={"Create a lasting legacy"}
-                  price={"$55,950"}
-                  horsepower={"326hp"}
-                  link={"/vehicles/land-cruiser"}
-                />
-                <VehicleCard
-                  image={"rav4.jpg"}
-                  fuel={"Gas | Hybrid"}
-                  name={"RAV4"}
-                  description={"Take a break from routine"}
-                  price={"$28,675"}
-                  horsepower={"203hp"}
-                  link={"/vehicles/rav4"}
-                />
-                <VehicleCard
-                  image={"sequoia.jpg"}
-                  fuel={"Hybrid"}
-                  name={"Sequoia"}
-                  description={"A powerful presence"}
-                  price={"$59,865"}
-                  horsepower={"437hp"}
-                  link={"/vehicles/sequoia"}
-                />
-                <VehicleCard
-                  image={"venza.jpg"}
-                  fuel={"Hybrid"}
-                  name={"Venza"}
-                  description={"Enjoy the ride of your life"}
-                  price={"$34,620"}
-                  horsepower={"219hp"}
-                  link={"/vehicles/venza"}
-                />
-                <VehicleCard
-                  image={"chr.jpg"}
-                  fuel={"Hybrid"}
-                  name={"C-HR"}
-                  description={"Toyota's rule breaker, impossible to ignore"}
-                  price={"$36,900"}
-                  horsepower={"194hp"}
-                  link={"/vehicles/c-hr"}
-                />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {suvs.map((suv: any) => (
+                  <VehicleCard
+                    key={suv.name}
+                    image={suv.image}
+                    fuel={suv.fuel}
+                    name={suv.name}
+                    description={suv.description}
+                    price={suv.price}
+                    horsepower={suv.horsepower}
+                    link={suv.link}
+                  />
+                ))}
               </div>
             </Tab>
             <Tab className="text-lg" key="alternative" title="Alternative Fuel">
@@ -223,24 +137,19 @@ function Home() {
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
                 }
               >
-                <VehicleCard
-                  image={"mirai.jpg"}
-                  fuel={"Hydrogen"}
-                  name={"Mirai"}
-                  description={"Innovation is power"}
-                  price={"$49,500"}
-                  horsepower={"182hp"}
-                  link={"/vehicles/mirai"}
-                />
-                <VehicleCard
-                  image={"bz4x.jpg"}
-                  fuel={"Electric"}
-                  name={"bZ4X"}
-                  description={"100% electric, 100% innovative"}
-                  price={"$42,000"}
-                  horsepower={"201hp"}
-                  link={"/vehicles/bz4x"}
-                />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {alternatives.map((alternative: any) => (
+                  <VehicleCard
+                    key={alternative.name}
+                    image={alternative.image}
+                    fuel={alternative.fuel}
+                    name={alternative.name}
+                    description={alternative.description}
+                    price={alternative.price}
+                    horsepower={alternative.horsepower}
+                    link={alternative.link}
+                  />
+                ))}
               </div>
             </Tab>
             <Tab className="text-lg" key="gr" title="GR">
@@ -249,42 +158,19 @@ function Home() {
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
                 }
               >
-                <VehicleCard
-                  image={"gr86.jpg"}
-                  fuel={"Gas"}
-                  name={"GR86"}
-                  description={"Thrill-seeker’s delight"}
-                  price={"$29,300"}
-                  horsepower={"228hp"}
-                  link={"/vehicles/gr86"}
-                />
-                <VehicleCard
-                  image={"gryaris.jpg"}
-                  fuel={"Gas"}
-                  name={"GR YARIS"}
-                  description={"GR's hot hatch"}
-                  price={"$40,000"}
-                  horsepower={"118hp"}
-                  link={"/vehicles/gr-yaris"}
-                />
-                <VehicleCard
-                  image={"grcorolla.jpg"}
-                  fuel={"Gas"}
-                  name={"GR Corolla"}
-                  description={"Ready to rally"}
-                  price={"$35,900"}
-                  horsepower={"300hp"}
-                  link={"/vehicles/gr-corolla"}
-                />
-                <VehicleCard
-                  image={"grsupra.jpg"}
-                  fuel={"Gas"}
-                  name={"GR Supra"}
-                  description={"Shift it up a notch"}
-                  price={"$44,640"}
-                  horsepower={"255hp"}
-                  link={"/vehicles/gr-supra"}
-                />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {grs.map((gr: any) => (
+                  <VehicleCard
+                    key={gr.name}
+                    image={gr.image}
+                    fuel={gr.fuel}
+                    name={gr.name}
+                    description={gr.description}
+                    price={gr.price}
+                    horsepower={gr.horsepower}
+                    link={gr.link}
+                  />
+                ))}
               </div>
             </Tab>
           </Tabs>

@@ -79,17 +79,6 @@ function App() {
                 color="foreground"
                 isExternal
                 showAnchorIcon
-                href="https://www.toyotacertified.com/"
-              >
-                Used Vehicles
-              </Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Link
-                className="gap-2"
-                color="foreground"
-                isExternal
-                showAnchorIcon
                 href="https://www.toyota.com/rental"
               >
                 Rentals
@@ -136,17 +125,6 @@ function App() {
             <NavbarMenuItem>
               <Link href="/faq" color="foreground" aria-current="page">
                 FAQ
-              </Link>
-            </NavbarMenuItem>
-            <NavbarMenuItem>
-              <Link
-                className="gap-2"
-                color="foreground"
-                isExternal
-                showAnchorIcon
-                href="https://www.toyotacertified.com/"
-              >
-                Used Vehicles
               </Link>
             </NavbarMenuItem>
             <NavbarMenuItem>

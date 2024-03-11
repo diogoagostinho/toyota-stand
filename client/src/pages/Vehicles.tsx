@@ -26,17 +26,30 @@ function Vehicles() {
   );
   const [selectedFilter, setSelectedFilter] = useState("a-z");
 
-  const handleSelectionFilter = (e) => {
-    setSelectedFilter(e.currentKey.toString());
-    console.log(selectedFilter);
-  };
-
   const [allVehicles, setAllVehicles] = useState([]);
   const [cars, setCars] = useState([]);
   const [trucks, setTrucks] = useState([]);
   const [suvs, setSuvs] = useState([]);
   const [alternatives, setAlternatives] = useState([]);
   const [grs, setGrs] = useState([]);
+
+  const handleSelectionFilter = (e) => {
+    setSelectedFilter(e.currentKey.toString());
+    console.log(selectedFilter);
+
+    if (selectedFilter == "a-z") {
+      console.log("A-Z");
+    }
+    if (selectedFilter == "highest") {
+      console.log("Highest");
+    }
+    if (selectedFilter == "lowest") {
+      console.log("Lowest");
+    }
+    if (selectedFilter == "horsepower") {
+      console.log("Horsepower");
+    }
+  };
 
   useEffect(() => {
     axios
@@ -82,10 +95,31 @@ function Vehicles() {
       </div>
       <div className="px-10 sm:px-10 xl:px-10 2xl:px-40 justify-center pb-10">
         <div>
-          <div className="flex justify-around align-middle items-center pb-6">
+          <div className="flex justify-start gap-6 align-middle items-center pb-6">
+            <Select
+              onSelectionChange={handleSelectionFilter}
+              size="sm"
+              label="Order By:"
+              className="max-w-xs"
+              defaultSelectedKeys={["a-z"]}
+              variant="faded"
+            >
+              <SelectItem key="a-z" value="a-z">
+                A-Z
+              </SelectItem>
+              <SelectItem key="highest" value="highest">
+                Highest Price
+              </SelectItem>
+              <SelectItem key="lowest" value="lowest">
+                Lowest Price
+              </SelectItem>
+              <SelectItem key="horsepower" value="horsepower">
+                Horsepower
+              </SelectItem>
+            </Select>
             <Dropdown>
               <DropdownTrigger>
-                <Button variant="bordered" className="capitalize">
+                <Button variant="faded" className="capitalize">
                   {selectedValue}
                 </Button>
               </DropdownTrigger>
@@ -107,28 +141,8 @@ function Vehicles() {
                 <DropdownItem key="GR">GR</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-
-            <Select
-              onSelectionChange={handleSelectionFilter}
-              size="sm"
-              label="Order By:"
-              className="max-w-xs"
-            >
-              <SelectItem key="a-z" value="a-z">
-                A-Z
-              </SelectItem>
-              <SelectItem key="highest" value="highest">
-                Highest Price
-              </SelectItem>
-              <SelectItem key="lowest" value="lowest">
-                Lowest Price
-              </SelectItem>
-              <SelectItem key="horsepower" value="horsepower">
-                Horsepower
-              </SelectItem>
-            </Select>
           </div>
-          <div className="flex justify-around flex-wrap gap-6">
+          <div className="flex justify-center flex-wrap gap-6">
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {allVehicles.map((vehicle: any) => (
               <VehicleCard

@@ -6,7 +6,7 @@ function VehicleCard(props: {
   name: string;
   description: string;
   price: string;
-  horsepower: string;
+  horsepower: number;
   link: string;
 }) {
   let splitFuel = props.fuel.toString();
@@ -32,7 +32,7 @@ function VehicleCard(props: {
             <p className="font-semibold text-sm">Starting at:</p>
             <div className="flex gap-6 pb-2">
               <p>${props.price}</p>
-              <p>{props.horsepower}hp</p>
+              <p>{props.horsepower.toString()}hp</p>
             </div>
             <Link href={props.link}>
               <Button className="font-semibold">See More</Button>

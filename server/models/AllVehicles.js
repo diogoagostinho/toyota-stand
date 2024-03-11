@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const GrSchema = new mongoose.Schema({
+const VehiclesSchema = new mongoose.Schema({
   name: String,
   image: String,
   fuel: Array,
@@ -10,4 +10,4 @@ const GrSchema = new mongoose.Schema({
   link: String,
 });
 
-export const GrModel = mongoose.model("grs", GrSchema);
+export const VehiclesModel = mongoose.model("allvehicles", VehiclesSchema);

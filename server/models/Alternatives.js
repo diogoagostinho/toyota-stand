@@ -6,7 +6,7 @@ const AlternativeSchema = new mongoose.Schema({
   fuel: Array,
   description: String,
   price: String,
-  horsepower: String,
+  horsepower: Number,
   link: String,
 });
 

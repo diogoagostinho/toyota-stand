@@ -5,3 +5,4 @@
 - Better images
 - Fix TS Errors
 - Image Loading (via skeleton or spinner)
+- badges

@@ -6,3 +6,5 @@
 - Fix TS Errors
 - Image Loading (via skeleton or spinner)
 - badges
+- car models
+- grid layout on vehicles page

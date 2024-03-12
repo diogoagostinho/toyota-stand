@@ -170,8 +170,9 @@ app.get("/vehicles/grs/horsepower", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-app.get("/vehicles/specs", (req, res) => {
-  VehicleSpecModel.find({ name: "Corolla" })
+app.get("/vehicles/:id", (req, res) => {
+  const carId = req.params.id;
+  VehicleSpecModel.find({ nameId: carId })
     .then((specs) => res.json(specs))
     .catch((err) => res.json(err));
 });

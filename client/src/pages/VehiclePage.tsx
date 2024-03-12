@@ -1,24 +1,38 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function VehiclePage() {
+  const carRef = useRef(0);
+  const carId = location.pathname.split("/")[2].toString();
   const [car, setCar] = useState([]);
 
   useEffect(() => {
-    document.title = "Toyota Corolla";
+    console.log(carId);
 
-    axios
-      .get("http://localhost:5000/vehicles/specs")
-      .then((cars) => setCar(cars.data))
-      .catch((err) => console.log(err));
-  });
+    const fetchCar = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/vehicles/${carId}`);
+        if (res.data == "") {
+          carRef.current = 0;
+        } else {
+          setCar(res.data);
+          carRef.current = 1;
+          document.title = "Toyota " + res.data[0].name;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchCar();
+  }, [carId]);
 
   return (
     <>
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {car.map((item: any) => (
         <div>
-          <img src={item.bannerImage} />
+          <div>
+            <img src={item.bannerImage} />
+          </div>
           <p>Toyota {item.name}</p>
           <p>{item.price}</p>
           <p>{item.horsepower}</p>

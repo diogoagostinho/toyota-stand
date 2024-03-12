@@ -146,7 +146,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/vehicles/:v" element={<VehiclePage />} />
+          <Route path="/vehicles/:id" element={<VehiclePage />} />
         </Routes>
 
         <Footer />

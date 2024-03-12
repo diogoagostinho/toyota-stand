@@ -17,6 +17,7 @@ import Home from "./pages/Home";
 import Vehicles from "./pages/Vehicles";
 import Faq from "./pages/Faq";
 import Footer from "./components/Footer";
+import VehiclePage from "./pages/VehiclePage";
 
 function App() {
   const navigate = useNavigate();
@@ -145,6 +146,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/vehicles/:v" element={<VehiclePage />} />
         </Routes>
 
         <Footer />

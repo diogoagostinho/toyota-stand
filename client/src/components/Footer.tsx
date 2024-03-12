@@ -3,7 +3,7 @@ import { Link } from "@nextui-org/react";
 function Footer() {
   return (
     <>
-      <div className="flex justify-around bg-neutral-100 dark:bg-neutral-900 py-10">
+      <div className="flex justify-evenly bg-neutral-100 dark:bg-neutral-900 py-10">
         <div className="flex flex-col gap-5">
           <h2 className="font-bold">Helpful Links</h2>
           <div className="flex flex-col gap-2">

@@ -9,6 +9,7 @@ import { AlternativeModel } from "./models/Alternatives.js";
 import { TruckModel } from "./models/Trucks.js";
 import { GrModel } from "./models/Grs.js";
 import { VehiclesModel } from "./models/AllVehicles.js";
+import { VehicleSpecModel } from "./models/VehicleSpecs.js";
 
 const app = express();
 app.use(cors());
@@ -166,6 +167,12 @@ app.get("/vehicles/grs/horsepower", (req, res) => {
   GrModel.find()
     .sort({ horsepower: -1 })
     .then((grs) => res.json(grs))
+    .catch((err) => res.json(err));
+});
+
+app.get("/vehicles/specs", (req, res) => {
+  VehicleSpecModel.find({ name: "Corolla" })
+    .then((specs) => res.json(specs))
     .catch((err) => res.json(err));
 });
 

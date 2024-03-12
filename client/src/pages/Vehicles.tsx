@@ -33,60 +33,338 @@ function Vehicles() {
   const [alternatives, setAlternatives] = useState([]);
   const [grs, setGrs] = useState([]);
 
-  const handleSelectionFilter = (e) => {
+  const handleSelectionFilter = async (e) => {
     setSelectedFilter(e.currentKey.toString());
-    console.log(selectedFilter);
-
-    if (selectedFilter == "a-z") {
-      console.log("A-Z");
-    }
-    if (selectedFilter == "highest") {
-      console.log("Highest");
-    }
-    if (selectedFilter == "lowest") {
-      console.log("Lowest");
-    }
-    if (selectedFilter == "horsepower") {
-      console.log("Horsepower");
-    }
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/all")
-      .then((vehicles) => setAllVehicles(vehicles.data))
-      .catch((err) => console.log(err));
-  });
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/all")
+          .then((vehicles) => setAllVehicles(vehicles.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/all/highprice")
+          .then((vehicles) => setAllVehicles(vehicles.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/all/lowprice")
+          .then((vehicles) => setAllVehicles(vehicles.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/all/horsepower")
+          .then((vehicles) => setAllVehicles(vehicles.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/cars")
-      .then((cars) => setCars(cars.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars")
+          .then((cars) => setCars(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/highprice")
+          .then((cars) => setCars(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/lowprice")
+          .then((cars) => setCars(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/horsepower")
+          .then((cars) => setCars(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/trucks")
-      .then((trucks) => setTrucks(trucks.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/trucks")
+          .then((cars) => setTrucks(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/trucks/highprice")
+          .then((cars) => setTrucks(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/trucks/lowprice")
+          .then((cars) => setTrucks(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/cars/trucks/horsepower")
+          .then((cars) => setTrucks(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/suvs")
-      .then((suvs) => setSuvs(suvs.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/suvs")
+          .then((cars) => setSuvs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/suvs/highprice")
+          .then((cars) => setSuvs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/suvs/lowprice")
+          .then((cars) => setSuvs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/suvs/horsepower")
+          .then((cars) => setSuvs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/alternatives")
-      .then((alternatives) => setAlternatives(alternatives.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/alternatives")
+          .then((cars) => setAlternatives(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/alternatives/highprice")
+          .then((cars) => setAlternatives(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/alternatives/lowprice")
+          .then((cars) => setAlternatives(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/alternatives/horsepower")
+          .then((cars) => setAlternatives(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/vehicles/grs")
-      .then((gr) => setGrs(gr.data))
-      .catch((err) => console.log(err));
-  }, []);
+    if (selectedFilter == "a-z") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/grs")
+          .then((cars) => setGrs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "highest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/grs/highprice")
+          .then((cars) => setGrs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "lowest") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/grs/lowprice")
+          .then((cars) => setGrs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+    if (selectedFilter == "horsepower") {
+      const getData = async () => {
+        await axios
+          .get("http://localhost:5000/vehicles/grs/horsepower")
+          .then((cars) => setGrs(cars.data))
+          .catch((err) => console.log(err));
+      };
+      getData();
+    }
+  }, [selectedFilter]);
+
+  function MappingVehicles() {
+    if (selectedCategory.currentKey == "All Vehicles") {
+      return allVehicles.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else if (selectedCategory.currentKey == "Cars") {
+      return cars.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else if (selectedCategory.currentKey == "Trucks") {
+      return trucks.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else if (selectedCategory.currentKey == "SUVs") {
+      return suvs.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else if (selectedCategory.currentKey == "Alternative Fuel") {
+      return alternatives.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else if (selectedCategory.currentKey == "GR") {
+      return grs.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    } else {
+      return allVehicles.map((vehicle: any) => (
+        <VehicleCard
+          key={vehicle.name}
+          image={vehicle.image}
+          fuel={vehicle.fuel}
+          name={vehicle.name}
+          description={vehicle.description}
+          price={vehicle.price}
+          horsepower={vehicle.horsepower}
+          link={vehicle.link}
+        />
+      ));
+    }
+  }
 
   return (
     <>
@@ -142,20 +420,8 @@ function Vehicles() {
               </DropdownMenu>
             </Dropdown>
           </div>
-          <div className="flex justify-center flex-wrap gap-6">
-            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            {allVehicles.map((vehicle: any) => (
-              <VehicleCard
-                key={vehicle.name}
-                image={vehicle.image}
-                fuel={vehicle.fuel}
-                name={vehicle.name}
-                description={vehicle.description}
-                price={vehicle.price}
-                horsepower={vehicle.horsepower}
-                link={vehicle.link}
-              />
-            ))}
+          <div className="flex justify-start flex-wrap gap-6">
+            <MappingVehicles />
           </div>
         </div>
       </div>

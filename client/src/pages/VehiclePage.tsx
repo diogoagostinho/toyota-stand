@@ -53,14 +53,14 @@ function VehiclePage() {
           </div>
           <div className="bg-foreground-100 rounded-xl m-10 px-20 py-20 text-center flex flex-col justify-center items-center gap-4">
             <img
-              src={`/badges/${item.nameId}.png`}
+              src={`https://raw.githubusercontent.com/diogoagostinho/toyota-stand/main/client/public/badges/${item.nameId}.png`}
               className="max-w-60 drop-shadow-lg"
             />
             <h1 className="text-4xl font-bold">{item.bigDesc}</h1>
             <p className="text-xl font-normal w-1/2">{item.smallDesc}</p>
             <img
               className="w-[500px] pt-10"
-              src={`/models/${item.nameId}.png`}
+              src={`https://raw.githubusercontent.com/diogoagostinho/toyota-stand/main/client/public/models/${item.nameId}.png`}
               alt=""
             />
           </div>

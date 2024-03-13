@@ -14,6 +14,9 @@ const VehicleSpecSchema = new mongoose.Schema({
   interiorImage: String,
   smallDesc: String,
   modelImage: String,
+  engine: String,
+  performance: String,
+  weight: String,
 });
 
 export const VehicleSpecModel = mongoose.model("carspecs", VehicleSpecSchema);

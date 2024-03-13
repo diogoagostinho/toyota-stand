@@ -1,10 +1,8 @@
 # Toyota Stand
 
-- Page for vehicle with specs and everything
 - Responsive design
-- Better images
+- Better images on thumbs
 - Fix TS Errors
 - Image Loading (via skeleton or spinner)
-- badges
-- car models
-- grid layout on vehicles page
+- better badges
+- compact car models

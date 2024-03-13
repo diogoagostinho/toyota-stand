@@ -4,5 +4,3 @@
 - Better images on thumbs
 - Fix TS Errors
 - Image Loading (via skeleton or spinner)
-- better badges
-- compact car models

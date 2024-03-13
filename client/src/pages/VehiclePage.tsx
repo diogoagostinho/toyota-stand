@@ -35,7 +35,7 @@ function VehiclePage() {
             style={{ "--image-url": `url(${item.bannerImage})` }}
             className={"w-full bg-center bg-cover bg-[image:var(--image-url)]"}
           >
-            <div className="flex items-start justify-start w-full h-full pt-64 pb-10 pl-4">
+            <div className="flex justify-between items-end w-full h-full pt-64 pb-10 px-4">
               <div className="text-left">
                 <div className="container px-4 mx-auto ">
                   <div className="max-w-4xl text-white mx-auto text-left drop-shadow-2xl">
@@ -52,6 +52,10 @@ function VehiclePage() {
             </div>
           </div>
           <div className="bg-foreground-100 rounded-xl m-10 px-20 py-20 text-center flex flex-col justify-center items-center gap-4">
+            <img
+              src={`/badges/${item.nameId}.png`}
+              className="max-w-60 drop-shadow-lg"
+            />
             <h1 className="text-4xl font-bold">{item.bigDesc}</h1>
             <p className="text-xl font-normal w-1/2">{item.smallDesc}</p>
             <img
@@ -164,19 +168,16 @@ function VehiclePage() {
               <h1 className="text-white text-3xl font-bold text-center pb-10">
                 Interested?
               </h1>
-              <div className="flex justify-around items-center text-white">
-                <img src={`/badges/${item.nameId}.png`} className="max-w-80" />
-                <div className="flex flex-col justify-center">
-                  <p className="pb-6 text-lg">
-                    Find the {item.name} that fits you best!
-                  </p>
-                  <Button
-                    size="lg"
-                    className="bg-red-500 text-white font-normal text-center"
-                  >
-                    Toyota Dealer
-                  </Button>
-                </div>
+              <div className="flex flex-col justify-center items-center text-white">
+                <p className="pb-6 text-lg">
+                  Find the {item.name} that fits you best!
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-red-500 text-white font-normal text-center"
+                >
+                  Toyota Dealer
+                </Button>
               </div>
             </div>
           </div>

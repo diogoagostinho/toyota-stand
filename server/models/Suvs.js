@@ -8,6 +8,7 @@ const SuvSchema = new mongoose.Schema({
   price: String,
   horsepower: Number,
   link: String,
+  nameId: String,
 });
 
 export const SuvModel = mongoose.model("suvs", SuvSchema);

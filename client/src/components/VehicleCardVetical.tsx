@@ -8,6 +8,7 @@ function VehicleCardVertical(props: {
   price: string;
   horsepower: string;
   link: string;
+  nameId: string;
 }) {
   let splitFuel = props.fuel.toString();
 
@@ -18,27 +19,33 @@ function VehicleCardVertical(props: {
   return (
     <Card
       shadow="md"
-      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[550px] max-h-[500px]"
+      className=" border-1 border-foreground-100  bg-background/60 dark:bg-default-100/50 w-[350px] h-[300px]"
     >
-      <CardBody className="p-0 flex-row h-full">
-        <img className="object-cover w-1/2" src={props.image} />
-        <div className="w-1/2 flex flex-col justify-between p-6">
-          <div className="flex flex-col">
-            <p className="font-normal pb-1 text-lg">{splitFuel}</p>
-            <p className="font-black text-xl">{props.name}</p>
-            <p className="font-semibold text-lg">{props.description}</p>
+      <CardBody className="p-4 flex-col h-full w-full justify-center ">
+        <div className="flex justify-center items-center pt-8">
+          <img
+            className="w-[250px] align-middle"
+            src={`https://raw.githubusercontent.com/diogoagostinho/toyota-stand/main/client/public/models/${props.nameId}.png`}
+          />
+        </div>
+        <div className="flex justify-between items-end pb-2 px-1">
+          <div className="flex flex-col text-left">
+            <p className="font-normal pb-1 text-xs">{splitFuel}</p>
+            <p className="font-black text-lg">{props.name}</p>
           </div>
-          <div className="flex flex-col pt-8">
-            <p className="font-semibold text-sm">Starting at:</p>
-            <div className="flex gap-6 pb-2">
-              <p>${props.price}</p>
-              <p>{props.horsepower}hp</p>
-            </div>
-            <Link href={props.link}>
-              <Button className="font-semibold">See More</Button>
-            </Link>
+          <div className="flex flex-col text-right">
+            <p className="font-semibold text-xs">Starting at:</p>
+            <p>${props.price}</p>
           </div>
         </div>
+        <Link
+          className="flex flex-col h-full w-full justify-center"
+          href={props.link}
+        >
+          <Button className="bg-red-500 text-white w-full" radius="sm">
+            See More
+          </Button>
+        </Link>
       </CardBody>
     </Card>
   );

@@ -1,4 +1,4 @@
-import { Card, CardBody, Button, Link } from "@nextui-org/react";
+import { Card, CardBody, Link } from "@nextui-org/react";
 
 function VehicleCard(props: {
   image: string;
@@ -16,31 +16,30 @@ function VehicleCard(props: {
   }
 
   return (
-    <Card
-      shadow="md"
-      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[550px] max-h-[500px]"
-    >
-      <CardBody className="p-0 flex-row h-full">
-        <img className="object-cover w-1/2" src={props.image} />
-        <div className="w-1/2 flex flex-col justify-between p-6">
-          <div className="flex flex-col">
-            <p className="font-normal pb-1 text-lg">{splitFuel}</p>
-            <p className="font-black text-xl">{props.name}</p>
-            <p className="font-semibold text-lg">{props.description}</p>
-          </div>
-          <div className="flex flex-col pt-8">
-            <p className="font-semibold text-sm">Starting at:</p>
-            <div className="flex gap-6 pb-2">
-              <p>${props.price}</p>
-              <p>{props.horsepower.toString()}hp</p>
+    <Link href={props.link}>
+      <Card
+        shadow="md"
+        className=" border-none bg-background/60 dark:bg-default-100/50 w-[400px] h-[250px]"
+      >
+        <CardBody className="p-0 flex-row h-full">
+          <img className="object-cover w-3/5" src={props.image} />
+          <div className="w-2/5 flex flex-col justify-between p-4">
+            <div className="flex flex-col">
+              <p className="font-normal pb-1 text-sm">{splitFuel}</p>
+              <p className="font-black text-lg">{props.name}</p>
+              <p className="font-semibold text-md">{props.description}</p>
             </div>
-            <Link href={props.link}>
-              <Button className="font-semibold">See More</Button>
-            </Link>
+            <div className="flex flex-col pt-4">
+              <p className="font-semibold text-xs">Starting at:</p>
+              <div className="flex justify-between pb-2">
+                <p className="text-sm">${props.price}</p>
+                <p className="text-sm">{props.horsepower.toString()}hp</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </CardBody>
-    </Card>
+        </CardBody>
+      </Card>
+    </Link>
   );
 }
 

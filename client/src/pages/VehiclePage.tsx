@@ -29,9 +29,11 @@ function VehiclePage() {
 
   return (
     <>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       {car.map((item: any) => (
         <div key={item.nameId}>
           <div
+            //@ts-expect-error --image-url
             style={{ "--image-url": `url(${item.bannerImage})` }}
             className={"w-full bg-center bg-cover bg-[image:var(--image-url)]"}
           >
@@ -159,6 +161,7 @@ function VehiclePage() {
             </div>
           </div>
           <div
+            //@ts-expect-error --image-url
             style={{ "--image-url": `url(${item.bannerImage})` }}
             className={
               "rounded-2xl m-10 bg-center bg-cover bg-[image:var(--image-url)] "

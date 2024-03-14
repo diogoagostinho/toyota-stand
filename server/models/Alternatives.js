@@ -8,6 +8,7 @@ const AlternativeSchema = new mongoose.Schema({
   price: String,
   horsepower: Number,
   link: String,
+  nameId: String,
 });
 
 export const AlternativeModel = mongoose.model(

@@ -8,6 +8,7 @@ const TruckSchema = new mongoose.Schema({
   price: String,
   horsepower: Number,
   link: String,
+  nameId: String,
 });
 
 export const TruckModel = mongoose.model("trucks", TruckSchema);

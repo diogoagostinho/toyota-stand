@@ -10,7 +10,7 @@ import {
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import VehicleCard from "../components/VehicleCard";
+import VehicleCardVertical from "../components/VehicleCardVetical";
 
 function Vehicles() {
   useEffect(() => {
@@ -21,6 +21,7 @@ function Vehicles() {
     new Set(["All Vehicles"])
   );
   const selectedValue = useMemo(
+    //@ts-expect-error replaceAll
     () => Array.from(selectedCategory).join(", ").replaceAll("_", " "),
     [selectedCategory]
   );
@@ -33,6 +34,7 @@ function Vehicles() {
   const [alternatives, setAlternatives] = useState([]);
   const [grs, setGrs] = useState([]);
 
+  //@ts-expect-error event
   const handleSelectionFilter = async (e) => {
     setSelectedFilter(e.currentKey.toString());
   };
@@ -272,9 +274,11 @@ function Vehicles() {
   }, [selectedFilter]);
 
   function MappingVehicles() {
+    //@ts-expect-error currentKey
     if (selectedCategory.currentKey == "All Vehicles") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return allVehicles.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -283,11 +287,14 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
+      //@ts-expect-error currentKey
     } else if (selectedCategory.currentKey == "Cars") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return cars.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -296,11 +303,14 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
+      //@ts-expect-error currentKey
     } else if (selectedCategory.currentKey == "Trucks") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return trucks.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -309,11 +319,14 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
+      //@ts-expect-error currentKey
     } else if (selectedCategory.currentKey == "SUVs") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return suvs.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -322,11 +335,14 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
+      //@ts-expect-error currentKey
     } else if (selectedCategory.currentKey == "Alternative Fuel") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return alternatives.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -335,11 +351,14 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
+      //@ts-expect-error currentKey
     } else if (selectedCategory.currentKey == "GR") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return grs.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -348,11 +367,13 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return allVehicles.map((vehicle: any) => (
-        <VehicleCard
+        <VehicleCardVertical
           key={vehicle.name}
           image={vehicle.image}
           fuel={vehicle.fuel}
@@ -361,6 +382,7 @@ function Vehicles() {
           price={vehicle.price}
           horsepower={vehicle.horsepower}
           link={vehicle.link}
+          nameId={vehicle.nameId}
         />
       ));
     }
@@ -372,8 +394,33 @@ function Vehicles() {
         <h1 className="text-4xl font-bold text-center">Toyota Vehicles</h1>
       </div>
       <div className="px-10 sm:px-10 xl:px-10 2xl:px-40 justify-center pb-10">
-        <div>
-          <div className="flex justify-start gap-6 align-middle items-center pb-6">
+        <div className="flex flex-col justify-center text-center">
+          <div className="flex flex-col justify-center gap-6 align-middle items-center pb-6">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button variant="faded" className="capitalize">
+                  {selectedValue}
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                aria-label="Single selection example"
+                variant="flat"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={selectedCategory}
+                //@ts-expect-error onSelectionChange
+                onSelectionChange={setSelectedCategory}
+              >
+                <DropdownItem key="All Vehicles">All Vehicles</DropdownItem>
+                <DropdownItem key="Cars">Cars</DropdownItem>
+                <DropdownItem key="Trucks">Trucks</DropdownItem>
+                <DropdownItem key="SUVs">SUVs</DropdownItem>
+                <DropdownItem key="Alternative Fuel">
+                  Alternative Fuel
+                </DropdownItem>
+                <DropdownItem key="GR">GR</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
             <Select
               onSelectionChange={handleSelectionFilter}
               size="sm"
@@ -395,32 +442,8 @@ function Vehicles() {
                 Horsepower
               </SelectItem>
             </Select>
-            <Dropdown>
-              <DropdownTrigger>
-                <Button variant="faded" className="capitalize">
-                  {selectedValue}
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu
-                aria-label="Single selection example"
-                variant="flat"
-                disallowEmptySelection
-                selectionMode="single"
-                selectedKeys={selectedCategory}
-                onSelectionChange={setSelectedCategory}
-              >
-                <DropdownItem key="All Vehicles">All Vehicles</DropdownItem>
-                <DropdownItem key="Cars">Cars</DropdownItem>
-                <DropdownItem key="Trucks">Trucks</DropdownItem>
-                <DropdownItem key="SUVs">SUVs</DropdownItem>
-                <DropdownItem key="Alternative Fuel">
-                  Alternative Fuel
-                </DropdownItem>
-                <DropdownItem key="GR">GR</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
           </div>
-          <div className="flex justify-start flex-wrap gap-6">
+          <div className="flex justify-center flex-wrap gap-6 ">
             <MappingVehicles />
           </div>
         </div>

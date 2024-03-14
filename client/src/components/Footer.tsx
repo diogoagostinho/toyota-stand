@@ -54,32 +54,7 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="font-bold">Vehicles</h2>
-          <div className="flex flex-col gap-2">
-            <Link isExternal href="/vehicles" color="foreground">
-              All Toyota Vehicles
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              Cars
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              Trucks
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              SUVs
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              Alternative Fuel
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              Beyond Zero
-            </Link>
-            <Link isExternal href="/vehicles" color="foreground">
-              Gazoo Racing
-            </Link>
-          </div>
-        </div>
+
         <div className="flex flex-col gap-4">
           <h2 className="font-bold ">Tools</h2>
           <div className="flex flex-col gap-2">

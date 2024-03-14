@@ -8,6 +8,7 @@ const GrSchema = new mongoose.Schema({
   price: String,
   horsepower: Number,
   link: String,
+  nameId: String,
 });
 
 export const GrModel = mongoose.model("grs", GrSchema);

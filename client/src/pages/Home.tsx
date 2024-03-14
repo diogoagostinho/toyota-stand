@@ -26,31 +26,31 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/vehicles/cars")
+      .get("https://plum-lemur-veil.cyclic.app/vehicles/cars")
       .then((cars) => setCars(cars.data))
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/vehicles/trucks")
+      .get("https://plum-lemur-veil.cyclic.app/vehicles/trucks")
       .then((trucks) => setTrucks(trucks.data))
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/vehicles/suvs")
+      .get("https://plum-lemur-veil.cyclic.app/vehicles/suvs")
       .then((suvs) => setSuvs(suvs.data))
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/vehicles/alternatives")
+      .get("https://plum-lemur-veil.cyclic.app/vehicles/alternatives")
       .then((alternatives) => setAlternatives(alternatives.data))
       .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/vehicles/grs")
+      .get("https://plum-lemur-veil.cyclic.app/vehicles/grs")
       .then((gr) => setGrs(gr.data))
       .catch((err) => console.log(err));
   }, []);

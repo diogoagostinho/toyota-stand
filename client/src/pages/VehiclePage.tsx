@@ -12,7 +12,9 @@ function VehiclePage() {
 
     const fetchCar = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/vehicles/${carId}`);
+        const res = await axios.get(
+          `https://plum-lemur-veil.cyclic.app/vehicles/${carId}`
+        );
         if (res.data == "") {
           carRef.current = 0;
         } else {

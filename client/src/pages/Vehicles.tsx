@@ -43,7 +43,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/all")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/all")
           .then((vehicles) => setAllVehicles(vehicles.data))
           .catch((err) => console.log(err));
       };
@@ -52,7 +52,7 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/all/highprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/all/highprice")
           .then((vehicles) => setAllVehicles(vehicles.data))
           .catch((err) => console.log(err));
       };
@@ -61,7 +61,7 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/all/lowprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/all/lowprice")
           .then((vehicles) => setAllVehicles(vehicles.data))
           .catch((err) => console.log(err));
       };
@@ -70,7 +70,7 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/all/horsepower")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/all/horsepower")
           .then((vehicles) => setAllVehicles(vehicles.data))
           .catch((err) => console.log(err));
       };
@@ -82,7 +82,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/cars")
           .then((cars) => setCars(cars.data))
           .catch((err) => console.log(err));
       };
@@ -91,7 +91,7 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/highprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/cars/highprice")
           .then((cars) => setCars(cars.data))
           .catch((err) => console.log(err));
       };
@@ -100,7 +100,7 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/lowprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/cars/lowprice")
           .then((cars) => setCars(cars.data))
           .catch((err) => console.log(err));
       };
@@ -109,7 +109,7 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/horsepower")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/cars/horsepower")
           .then((cars) => setCars(cars.data))
           .catch((err) => console.log(err));
       };
@@ -121,7 +121,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/trucks")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/trucks")
           .then((cars) => setTrucks(cars.data))
           .catch((err) => console.log(err));
       };
@@ -130,7 +130,9 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/trucks/highprice")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/cars/trucks/highprice"
+          )
           .then((cars) => setTrucks(cars.data))
           .catch((err) => console.log(err));
       };
@@ -139,7 +141,9 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/trucks/lowprice")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/cars/trucks/lowprice"
+          )
           .then((cars) => setTrucks(cars.data))
           .catch((err) => console.log(err));
       };
@@ -148,7 +152,9 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/cars/trucks/horsepower")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/cars/trucks/horsepower"
+          )
           .then((cars) => setTrucks(cars.data))
           .catch((err) => console.log(err));
       };
@@ -160,7 +166,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/suvs")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/suvs")
           .then((cars) => setSuvs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -169,7 +175,7 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/suvs/highprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/suvs/highprice")
           .then((cars) => setSuvs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -178,7 +184,7 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/suvs/lowprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/suvs/lowprice")
           .then((cars) => setSuvs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -187,7 +193,7 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/suvs/horsepower")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/suvs/horsepower")
           .then((cars) => setSuvs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -199,7 +205,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/alternatives")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/alternatives")
           .then((cars) => setAlternatives(cars.data))
           .catch((err) => console.log(err));
       };
@@ -208,7 +214,9 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/alternatives/highprice")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/alternatives/highprice"
+          )
           .then((cars) => setAlternatives(cars.data))
           .catch((err) => console.log(err));
       };
@@ -217,7 +225,9 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/alternatives/lowprice")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/alternatives/lowprice"
+          )
           .then((cars) => setAlternatives(cars.data))
           .catch((err) => console.log(err));
       };
@@ -226,7 +236,9 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/alternatives/horsepower")
+          .get(
+            "https://plum-lemur-veil.cyclic.app/vehicles/alternatives/horsepower"
+          )
           .then((cars) => setAlternatives(cars.data))
           .catch((err) => console.log(err));
       };
@@ -238,7 +250,7 @@ function Vehicles() {
     if (selectedFilter == "a-z") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/grs")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/grs")
           .then((cars) => setGrs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -247,7 +259,7 @@ function Vehicles() {
     if (selectedFilter == "highest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/grs/highprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/grs/highprice")
           .then((cars) => setGrs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -256,7 +268,7 @@ function Vehicles() {
     if (selectedFilter == "lowest") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/grs/lowprice")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/grs/lowprice")
           .then((cars) => setGrs(cars.data))
           .catch((err) => console.log(err));
       };
@@ -265,7 +277,7 @@ function Vehicles() {
     if (selectedFilter == "horsepower") {
       const getData = async () => {
         await axios
-          .get("http://localhost:5000/vehicles/grs/horsepower")
+          .get("https://plum-lemur-veil.cyclic.app/vehicles/grs/horsepower")
           .then((cars) => setGrs(cars.data))
           .catch((err) => console.log(err));
       };

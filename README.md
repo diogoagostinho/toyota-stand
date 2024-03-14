@@ -24,7 +24,9 @@
 
 <h3>About</h3>
 
-For this project I have used MERN to build the app, MongoDB database + ExpressJS + ReactJS + NodeJS along with TypeScript, deployed to xxx.
+For this project I have used MERN to build the app, MongoDB database + ExpressJS + ReactJS + NodeJS along with TypeScript.
+
+Front-End deployed to Netlify, Back-End deployed to Cyclic.
 
 The design of the project was made through [NextUI](https://nextui.org/) which uses references to Tailwind CSS.
 
@@ -34,7 +36,7 @@ All of the images used in the development of the project were taken from [toyota
 
 <h3 align="left">Visit website now</h3>
 
-- [Netlify](https://webbal.netlify.app/)
+- [Toyota-Stand](https://toyota-stand.netlify.app/)
 
 ---
 

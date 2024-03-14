@@ -59,7 +59,7 @@ function Home() {
     <>
       <HomeHero />
       <div className="w-full pt-14">
-        <h1 className="md:text-5xl text-3xl font-semibold text-center">
+        <h1 className="md:text-4xl text-2xl font-semibold text-center">
           Explore All Vehicles
         </h1>
         <div>
@@ -67,7 +67,7 @@ function Home() {
             className="flex justify-center text-center pt-6 "
             variant="underlined"
           >
-            <Tab className="text-lg" key="cars" title="Cars">
+            <Tab className="text-md md:text-lg" key="cars" title="Cars">
               <div
                 className={
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
@@ -89,7 +89,7 @@ function Home() {
               </div>
             </Tab>
 
-            <Tab className="text-lg" key="trucks" title="Trucks">
+            <Tab className="text-md md:text-lg" key="trucks" title="Trucks">
               <div
                 className={
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
@@ -110,7 +110,7 @@ function Home() {
                 ))}
               </div>
             </Tab>
-            <Tab className="text-lg" key="suvs" title="SUVs">
+            <Tab className="text-md md:text-lg" key="suvs" title="SUVs">
               <div
                 className={
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
@@ -131,7 +131,11 @@ function Home() {
                 ))}
               </div>
             </Tab>
-            <Tab className="text-lg" key="alternative" title="Alternative Fuel">
+            <Tab
+              className="text-md md:text-lg"
+              key="alternative"
+              title="Alternative Fuel"
+            >
               <div
                 className={
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"
@@ -152,7 +156,7 @@ function Home() {
                 ))}
               </div>
             </Tab>
-            <Tab className="text-lg" key="gr" title="GR">
+            <Tab className="text-md md:text-lg" key="gr" title="GR">
               <div
                 className={
                   "flex flex-row flex-wrap gap-6 justify-center px-10 sm:px-10 xl:px-10 2xl:px-40"

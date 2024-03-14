@@ -58,6 +58,7 @@ function Home() {
   return (
     <>
       <HomeHero />
+
       <div className="w-full pt-14">
         <h1 className="md:text-4xl text-2xl font-semibold text-center">
           Explore All Vehicles

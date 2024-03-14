@@ -1,4 +1,6 @@
 import { Card, CardBody, Link } from "@nextui-org/react";
+import LoadingSkeleton from "./LoadingSkeleton";
+import { useState } from "react";
 
 function VehicleCard(props: {
   image: string;
@@ -15,13 +17,20 @@ function VehicleCard(props: {
     splitFuel = splitFuel.split(",").join(" | ");
   }
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleCardLoad = () => {
+    setIsLoaded(true);
+  };
+
   return (
     <Link href={props.link}>
       <Card
         shadow="md"
         className="border-none bg-background/60 dark:bg-default-100/50 w-[300px] h-[150px] md:w-[400px] md:h-[250px] "
+        onLoad={handleCardLoad}
       >
-        <CardBody className="p-0 flex-row h-full">
+        <CardBody className={isLoaded ? "p-0 flex-row h-full" : "hidden"}>
           <img className="object-cover w-1/2 md:w-3/5" src={props.image} />
           <div className="w-1/2 md:w-2/5 flex flex-col justify-between p-4">
             <div className="flex flex-col">
@@ -42,6 +51,7 @@ function VehicleCard(props: {
             </div>
           </div>
         </CardBody>
+        <LoadingSkeleton loaded={isLoaded} />
       </Card>
     </Link>
   );
